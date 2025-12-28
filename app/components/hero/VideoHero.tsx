@@ -208,7 +208,7 @@ export function VideoHero({
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
           onClick={toggleMute}
-          className="absolute right-6 bottom-6 z-20 flex h-12 w-12 items-center justify-center border border-white/30 bg-white/10 backdrop-blur-sm transition-all hover:bg-white/20 md:right-8 md:top-8"
+          className="absolute right-6 bottom-6 z-20 flex h-12 w-12 items-center justify-center border border-white/30 bg-white/10 backdrop-blur-sm transition-all hover:bg-white/20 md:right-8 md:bottom-8"
           aria-label={isMuted ? 'Unmute video' : 'Mute video'}
         >
           <span className="text-white">
@@ -273,7 +273,7 @@ export function VideoHero({
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.3 }}
-              className="mt-6 text-lg font-light tracking-wide text-white/90 md:text-xl lg:text-2xl"
+              className="mt-2 text-lg font-light tracking-wide text-white/90 md:text-xl lg:text-2xl"
             >
               {subtitle}
             </motion.p>

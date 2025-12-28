@@ -4,7 +4,9 @@ import { notFound } from 'next/navigation';
 import { Manrope, Inter, Cormorant } from "next/font/google";
 import { routing } from '@/i18n/routing';
 import { SmoothScrollProvider } from '@/app/components/providers/SmoothScrollProvider';
+import { Header } from '@/app/components/header/Header';
 import "../globals.css";
+import { Footer } from '../components/footer/Footer';
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -52,7 +54,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SmoothScrollProvider>
+            <Header />
             {children}
+            <Footer />
           </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
