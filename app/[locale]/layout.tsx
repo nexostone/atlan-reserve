@@ -1,8 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Manrope, Inter } from "next/font/google";
+import { Manrope, Inter, Cormorant } from "next/font/google";
 import { routing } from '@/i18n/routing';
+import { SmoothScrollProvider } from '@/app/components/providers/SmoothScrollProvider';
 import "../globals.css";
 
 const manrope = Manrope({
@@ -15,6 +16,12 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300","400", "500", "600", "700"],
 });
 
 export function generateStaticParams() {
@@ -41,10 +48,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className={`${manrope.variable} ${inter.variable} antialiased`}>
+    <html lang={locale} className={`${manrope.variable} ${inter.variable} ${cormorant.variable}`}>
+      <body className="antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
     </html>

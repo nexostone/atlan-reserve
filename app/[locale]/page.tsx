@@ -1,72 +1,41 @@
-import { use } from 'react';
-import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import LanguageSwitcher from './components/LanguageSwitcher';
-import PriceDisplay from './components/PriceDisplay';
+import { VideoHero } from '@/app/components/hero/VideoHero';
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export default function Home({ params }: Props) {
-  const { locale } = use(params);
-  
-  // Habilitar static rendering
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
   setRequestLocale(locale);
-  
-  const t = useTranslations('home');
-  const tCommon = useTranslations('common');
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-6 p-8">
-      {/* Selector de idioma en la parte superior */}
-      <div className="absolute top-8 right-8">
-        <LanguageSwitcher />
-      </div>
+    <main className="min-h-screen">
+      <VideoHero
+        videoUrl="https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Videos/Video-Provisional-Atlan-Reserve.mp4"
+        title="Palo Alto"
+        subtitle="Punta de Mita"
+        primaryButton={{
+          text: "Explorar",
+          href: "/experiences"
+        }}
+        secondaryButton={{
+          text: "Solicitar Información",
+          href: "/reservations"
+        }}
+        overlayOpacity={0.9}
+      />
 
-      {/* Contenido principal */}
-      <h1 className="text-4xl text-navy font-manrope font-light">
-        Atlan Reserve
-      </h1>
-      
-      <p className="text-lg text-slate font-inter font-light">
-        {tCommon('welcome')}
-      </p>
-      
-      <div className="mt-8 text-center max-w-2xl">
-        <h2 className="text-3xl text-navy font-manrope font-medium mb-4">
-          {t('title')}
+      {/* Aquí irán más secciones */}
+      <section className="container-luxury py-24 min-h-dvh flex flex-col items-center justify-center gap-4">
+        <h2 className="font-serif text-4xl md:text-6xl text-center mb-8 ">
+          Welcome to Paradise
         </h2>
-        <p className="text-lg text-slate font-inter mb-8">
-          {t('subtitle')}
+        <p className="text-center text-lg text-gray-600 max-w-3xl">
+          Experience unparalleled luxury in the heart of nature.
+          Atlan Reserve offers exclusive experiences tailored to your desires.
         </p>
-        
-        {/* Botón CTA */}
-        <button className="bg-navy text-white px-8 py-3 rounded-lg font-manrope font-medium hover:bg-opacity-90 transition-all">
-          {t('cta')}
-        </button>
-      </div>
-
-      {/* Ejemplo de precios con diferentes monedas */}
-      <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-        <h3 className="text-xl font-manrope font-medium text-navy mb-4">
-          Ejemplos de Precios
-        </h3>
-        <div className="flex flex-col gap-3 text-left">
-          <div className="flex justify-between gap-8">
-            <span className="text-slate font-inter">Villa de lujo (USD):</span>
-            <PriceDisplay amount={2500} currency="USD" className="font-manrope font-medium text-navy" />
-          </div>
-          <div className="flex justify-between gap-8">
-            <span className="text-slate font-inter">Villa de lujo (MXN):</span>
-            <PriceDisplay amount={45000} currency="MXN" className="font-manrope font-medium text-navy" />
-          </div>
-          <div className="flex justify-between gap-8">
-            <span className="text-slate font-inter">Villa de lujo (EUR):</span>
-            <PriceDisplay amount={2300} currency="EUR" className="font-manrope font-medium text-navy" />
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

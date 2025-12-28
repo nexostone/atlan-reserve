@@ -26,6 +26,15 @@
     "subtitle": "Exclusive villas and unforgettable experiences",
     "cta": "Explore Now"
   },
+  "hero": {
+    "title": "Atlan Reserve",
+    "subtitle": "Where Nature Meets Luxury",
+    "primaryButton": "Explore Experiences",
+    "secondaryButton": "Reserve Now",
+    "scroll": "Scroll",
+    "muteVideo": "Mute video",
+    "unmuteVideo": "Unmute video"
+  },
   "currency": {
     "usd": "USD",
     "mxn": "MXN",
