@@ -72,7 +72,8 @@ export function Header() {
   };
 
   return (
-    <motion.header
+    <>
+      <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
@@ -149,52 +150,70 @@ export function Header() {
             Ubicación
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className={`md:hidden flex flex-col gap-1.5 p-2 z-50 relative ${isMobileMenuOpen ? 'text-white' : (isScrolled ? 'text-black' : 'text-white')
+          {/* Mobile Menu Button - Solo visible cuando el menú está cerrado */}
+          {!isMobileMenuOpen && (
+            <button
+              onClick={toggleMobileMenu}
+              className={`md:hidden flex flex-col gap-1.5 p-2 relative z-50 ${
+                isScrolled ? 'text-black' : 'text-white'
               }`}
-            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            <motion.span
-              animate={{
-                rotate: isMobileMenuOpen ? 45 : 0,
-                y: isMobileMenuOpen ? 7 : 0,
-              }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="block h-px w-6 bg-current origin-center"
-            />
-            <motion.span
-              animate={{
-                opacity: isMobileMenuOpen ? 0 : 1,
-                scale: isMobileMenuOpen ? 0 : 1,
-              }}
-              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="block h-px w-6 bg-current"
-            />
-            <motion.span
-              animate={{
-                rotate: isMobileMenuOpen ? -45 : 0,
-                y: isMobileMenuOpen ? -7 : 0,
-              }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="block h-px w-6 bg-current origin-center"
-            />
-          </button>
+              aria-label="Abrir menú"
+            >
+              <motion.span
+                className="block h-px w-6 bg-current origin-center"
+              />
+              <motion.span
+                className="block h-px w-6 bg-current"
+              />
+              <motion.span
+                className="block h-px w-6 bg-current origin-center"
+              />
+            </button>
+          )}
         </div>
       </div>
+      </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - FUERA del header */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
+            {/* Close Button - Fixed fuera del header */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMobileMenu}
+              className="md:hidden fixed top-6 right-6 z-[80] flex flex-col gap-1.5 p-2 text-white"
+              aria-label="Cerrar menú"
+            >
+              <motion.span
+                initial={{ rotate: 0, y: 0 }}
+                animate={{ rotate: 45, y: 7 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                className="block h-px w-6 bg-current origin-center"
+              />
+              <motion.span
+                initial={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 0, scale: 0 }}
+                transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                className="block h-px w-6 bg-current"
+              />
+              <motion.span
+                initial={{ rotate: 0, y: 0 }}
+                animate={{ rotate: -45, y: -7 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                className="block h-px w-6 bg-current origin-center"
+              />
+            </motion.button>
+
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] md:hidden"
               onClick={toggleMobileMenu}
             />
 
@@ -207,12 +226,12 @@ export function Header() {
                 duration: 0.4,
                 ease: [0.25, 0.1, 0.25, 1]
               }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-navy/30 z-40 md:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-navy/30 z-[70] md:hidden overflow-y-auto"
             >
               <div className="flex flex-col h-full pt-24 pb-8 px-8">
                 {/* Navigation Links */}
                 <nav className="flex flex-col gap-1 items-start justify-between h-full pb-4">
-                  <div>
+                  <div className='w-full'>
                   <MobileNavLink
                     href="/experiences"
                     onClick={toggleMobileMenu}
@@ -288,7 +307,7 @@ export function Header() {
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
 

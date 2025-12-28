@@ -1,5 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { VideoHero } from '@/app/components/hero/VideoHero';
+import { ContactSection } from '@/app/components/contact';
+import Image from 'next/image';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -27,15 +29,19 @@ export default async function HomePage({ params }: Props) {
       />
 
       {/* Aquí irán más secciones */}
-      <section className="container-luxury py-24 min-h-dvh flex flex-col items-center justify-center gap-4 bg-pearl">
-        <h2 className="font-serif text-navy text-4xl md:text-6xl text-center mb-8 ">
+      <section className="container-luxury py-24 min-h-dvh flex flex-col items-center justify-start gap-4 bg-pearl">
+        <h2 className="font-serif text-navy text-4xl md:text-6xl text-center mb-6 ">
           Welcome to Paradise
         </h2>
-        <p className="text-center text-lg text-gray-600 max-w-3xl">
+        <p className="text-center mb-4 text-lg text-gray-600 max-w-3xl">
           Experience unparalleled luxury in the heart of nature.
           Atlan Reserve offers exclusive experiences tailored to your desires.
         </p>
+        <Image alt='' src={"https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Images/panoramic-view-atlan-reserve.png"} width={1000} height={600}/>
       </section>
+
+      {/* Contact Section */}
+      <ContactSection />
     </main>
   );
 }
