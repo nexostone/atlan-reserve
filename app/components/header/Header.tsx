@@ -82,7 +82,7 @@ export function Header() {
           : 'bg-transparent'
         }`}
     >
-      <div className="container-luxury flex items-center justify-between py-3 md:py-4">
+      <div className="container-luxury flex items-center justify-between py-2 md:py-3">
         {/* Logo con animación de intercambio */}
         <Link href="/" className="relative overflow-hidden w-1/4 h-12">
           <AnimatePresence mode="wait" custom={isScrolled ? 1 : -1}>
@@ -131,7 +131,7 @@ export function Header() {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden text-xs md:flex items-center gap-8">
           <NavLink href="/experiences">Experiencias</NavLink>
           <NavLink href="/projects">Desarrollos</NavLink>
           <NavLink href="/about">Acerca de</NavLink>
@@ -142,7 +142,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link
             href="/reservations"
-            className={`hidden md:block px-6 py-2 text-sm font-light tracking-wide transition-all border ${isScrolled
+            className={`hidden md:block px-6 py-2 text-xs font-light tracking-wide transition-all border ${isScrolled
                 ? 'border-black text-black hover:bg-black hover:text-white'
                 : 'border-white text-white hover:bg-white hover:text-black'
               }`}

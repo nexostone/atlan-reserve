@@ -6,14 +6,17 @@
  */
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations/variants';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { LanguageSelector } from '@/app/components/LanguageSelector';
 
 const FULL_LOGO_URL = 'https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Logos/full-logo-atlan-reserve.png';
 
 export function Footer() {
+  const t = useTranslations();
   const { ref, controls } = useScrollAnimation({
     threshold: 0.1,
     triggerOnce: true,
@@ -49,29 +52,28 @@ export function Footer() {
               />
             </Link>
             <p className="font-inter text-sm font-light leading-relaxed text-white/70">
-              Experiencias de lujo en el corazón de la naturaleza. 
-              Donde la elegancia se encuentra con la exclusividad.
+              {t('footer.description')}
             </p>
           </motion.div>
 
           {/* Column 2: Navigation */}
           <motion.div variants={staggerItem}>
             <h3 className="font-cormorant mb-6 text-xl font-light tracking-wide">
-              Navegación
+              {t('footer.navigation')}
             </h3>
             <nav className="space-y-3">
-              <FooterLink href="/experiences">Experiencias</FooterLink>
-              <FooterLink href="/properties">Propiedades</FooterLink>
-              <FooterLink href="/about">Acerca de</FooterLink>
-              <FooterLink href="/contact">Contacto</FooterLink>
-              <FooterLink href="/reservations">Reservaciones</FooterLink>
+              <FooterLink href="/experiences">{t('navigation.experiences')}</FooterLink>
+              <FooterLink href="/properties">{t('navigation.properties')}</FooterLink>
+              <FooterLink href="/about">{t('navigation.about')}</FooterLink>
+              <FooterLink href="/contact">{t('navigation.contact')}</FooterLink>
+              <FooterLink href="/reservations">{t('navigation.reservations')}</FooterLink>
             </nav>
           </motion.div>
 
           {/* Column 3: Contact Info */}
           <motion.div variants={staggerItem}>
             <h3 className="font-cormorant mb-6 text-xl font-light tracking-wide">
-              Contacto
+              {t('footer.contact')}
             </h3>
             <div className="space-y-3 font-inter text-sm font-light text-white/70">
               <p>
@@ -100,7 +102,7 @@ export function Footer() {
           {/* Column 4: Newsletter & Social */}
           <motion.div variants={staggerItem}>
             <h3 className="font-cormorant mb-6 text-xl font-light tracking-wide">
-              Mantente Conectado
+              {t('footer.stayConnected')}
             </h3>
             
             {/* Newsletter */}
@@ -108,14 +110,14 @@ export function Footer() {
               <div className="flex border border-white/20">
                 <input
                   type="email"
-                  placeholder="Tu email"
+                  placeholder={t('footer.emailPlaceholder')}
                   className="flex-1 bg-transparent px-4 py-3 font-inter text-sm font-light text-white placeholder:text-white/40 focus:outline-none"
                 />
                 <button
                   type="submit"
                   className="bg-white px-6 font-inter text-sm font-light text-black transition-colors hover:bg-white/90"
                 >
-                  →
+                  {t('footer.subscribe')}
                 </button>
               </div>
             </form>
@@ -154,20 +156,24 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             {/* Copyright */}
             <p className="font-inter text-xs font-light text-white/50">
-              © {currentYear} Atlan Reserve. Todos los derechos reservados.
+              {t('footer.copyright', { year: currentYear })}
             </p>
 
-            {/* Legal Links */}
-            <div className="flex gap-6 font-inter text-xs font-light text-white/50">
-              <Link href="/privacy" className="transition-colors hover:text-white/80">
-                Privacidad
-              </Link>
-              <Link href="/terms" className="transition-colors hover:text-white/80">
-                Términos
-              </Link>
-              <Link href="/cookies" className="transition-colors hover:text-white/80">
-                Cookies
-              </Link>
+            {/* Language Selector & Legal Links */}
+            <div className="flex items-center gap-6">
+              <LanguageSelector />
+              
+              <div className="flex gap-6 font-inter text-xs font-light text-white/50">
+                <Link href="/privacy" className="transition-colors hover:text-white/80">
+                  {t('footer.privacy')}
+                </Link>
+                <Link href="/terms" className="transition-colors hover:text-white/80">
+                  {t('footer.terms')}
+                </Link>
+                <Link href="/cookies" className="transition-colors hover:text-white/80">
+                  {t('footer.cookies')}
+                </Link>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -7,6 +7,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { ExperienceCard, Experience } from './ExperienceCard';
 import { fadeInUp } from '@/lib/animations/variants';
 
@@ -15,6 +16,7 @@ interface ExperiencesCarouselProps {
 }
 
 export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
+  const t = useTranslations('home.experiences');
   const containerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -63,15 +65,14 @@ export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
           className="mb-12 md:mb-16"
         >
           <p className="mb-4 text-sm font-light uppercase tracking-widest text-champagne">
-            Experiencias Exclusivas
+            {t('label')}
           </p>
           <h2 className="font-serif text-4xl font-light text-navy md:text-5xl lg:text-6xl">
-            Un Estilo de Vida Excepcional
+            {t('title')}
           </h2>
           <div className="mt-6 h-px w-24 bg-champagne" />
           <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-steel">
-            Descubre las experiencias, amenidades y servicios exclusivos que 
-            hacen de Palo Alto un destino único en la Riviera Nayarit.
+            {t('description')}
           </p>
         </motion.div>
 
@@ -83,7 +84,7 @@ export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
               className="flex h-12 w-12 items-center justify-center border border-ash bg-white text-navy transition-all duration-300 hover:border-navy hover:bg-navy hover:text-white disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-navy disabled:hover:border-ash"
-              aria-label="Anterior"
+              aria-label={t('previous')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +105,7 @@ export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
               className="flex h-12 w-12 items-center justify-center border border-ash bg-white text-navy transition-all duration-300 hover:border-navy hover:bg-navy hover:text-white disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-navy disabled:hover:border-ash"
-              aria-label="Siguiente"
+              aria-label={t('next')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +150,7 @@ export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
             className="mt-8 flex justify-center gap-2 md:hidden"
           >
             <span className="text-xs uppercase tracking-widest text-slate">
-              Desliza para ver más
+              {t('swipeMore')}
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +181,7 @@ export function ExperiencesCarousel({ experiences }: ExperiencesCarouselProps) {
             href="/experiences"
             className="group inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm font-light uppercase tracking-wide text-navy transition-all hover:border-champagne hover:text-champagne"
           >
-            <span>Ver Todas las Experiencias</span>
+            <span>{t('viewAll')}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 transition-transform group-hover:translate-x-1"

@@ -22,9 +22,35 @@
     "properties": "Properties"
   },
   "home": {
-    "title": "Discover Luxury in the Mexican Caribbean",
-    "subtitle": "Exclusive villas and unforgettable experiences",
-    "cta": "Explore Now"
+    "hero": {
+      "title": "Palo Alto",
+      "subtitle": "Punta de Mita",
+      "primaryButton": "View Development",
+      "secondaryButton": "Request Information",
+      "muteVideo": "Mute video",
+      "unmuteVideo": "Unmute video",
+      "scroll": "Scroll",
+      "loadingExperience": "Loading experience...",
+      "videoUnavailable": "Video unavailable",
+      "checkConsole": "Check console for details"
+    },
+    "welcome": {
+      "title": "Welcome to Paradise",
+      "description": "Experience unparalleled luxury in the heart of nature. Atlan Reserve offers exclusive experiences tailored to your desires."
+    },
+    "experiences": {
+      "label": "Exclusive Experiences",
+      "title": "An Exceptional Lifestyle",
+      "description": "Discover the exclusive experiences, amenities and services that make Palo Alto a unique destination in the Riviera Nayarit.",
+      "previous": "Previous",
+      "next": "Next",
+      "swipeMore": "Swipe for more",
+      "viewAll": "View All Experiences"
+    },
+    "contact": {
+      "label": "Contact Us",
+      "title": "Start Your Story at Atlan Reserve"
+    }
   },
   "hero": {
     "title": "Atlan Reserve",
@@ -47,5 +73,17 @@
     "title": "Atlan Reserve - Luxury Villas in the Mexican Caribbean",
     "description": "Discover exclusive luxury villas and unique experiences in the Mexican Caribbean. Book your perfect getaway at Atlan Reserve.",
     "keywords": "luxury villas, mexican caribbean, exclusive properties, luxury reservations, premium experiences, tulum, playa del carmen, riviera maya"
+  },
+  "footer": {
+    "description": "Luxury experiences in the heart of nature. Where elegance meets exclusivity.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "stayConnected": "Stay Connected",
+    "emailPlaceholder": "Your email",
+    "subscribe": "→",
+    "copyright": "© {year} Atlan Reserve. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
   }
 }

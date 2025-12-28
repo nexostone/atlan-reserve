@@ -6,11 +6,14 @@
  */
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { ContactForm } from './ContactForm';
 import { ContactInfo } from './ContactInfo';
 import { fadeInUp } from '@/lib/animations/variants';
 
 export function ContactSection() {
+  const t = useTranslations('home.contact');
+  
   return (
     <section className="bg-pearl py-20 md:py-32">
       <div className="container-luxury">
@@ -23,10 +26,10 @@ export function ContactSection() {
           className="mb-16 text-center"
         >
           <p className="mb-4 text-sm font-light uppercase tracking-widest text-champagne">
-            Contáctanos
+            {t('label')}
           </p>
           <h2 className="font-serif text-4xl font-light text-navy md:text-5xl lg:text-6xl">
-            Comienza Tu Historia en Atlan Reserve
+            {t('title')}
           </h2>
           <div className="mx-auto mt-6 h-px w-24 bg-champagne" />
         </motion.div>

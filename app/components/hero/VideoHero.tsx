@@ -7,6 +7,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { fadeInUp, fadeIn } from '@/lib/animations/variants';
 import { Button } from '@/app/components/ui/Button';
 
@@ -39,6 +40,7 @@ export function VideoHero({
   className = '',
   textAlign = 'center',
 }: VideoHeroProps) {
+  const t = useTranslations('home.hero');
   const [isMuted, setIsMuted] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -162,7 +164,7 @@ export function VideoHero({
               <div className="absolute inset-0 z-10 flex items-center justify-center bg-black">
                 <div className="flex flex-col items-center gap-4">
                   <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white"></div>
-                  <p className="text-sm text-white/70">Loading experience...</p>
+                  <p className="text-sm text-white/70">{t('loadingExperience')}</p>
                 </div>
               </div>
             )}
@@ -188,8 +190,8 @@ export function VideoHero({
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gray-900 text-white">
             <div className="text-center">
-              <p className="text-xl mb-4">Video unavailable</p>
-              <p className="text-sm text-gray-400">Check console for details</p>
+              <p className="text-xl mb-4">{t('videoUnavailable')}</p>
+              <p className="text-sm text-gray-400">{t('checkConsole')}</p>
             </div>
           </div>
         )}
@@ -209,7 +211,7 @@ export function VideoHero({
           transition={{ delay: 1, duration: 0.6 }}
           onClick={toggleMute}
           className="absolute right-6 bottom-6 z-20 flex h-12 w-12 items-center justify-center border border-white/30 bg-white/10 backdrop-blur-sm transition-all hover:bg-white/20 md:right-8 md:bottom-8"
-          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+          aria-label={isMuted ? t('unmuteVideo') : t('muteVideo')}
         >
           <span className="text-white">
             {isMuted ? (
@@ -261,7 +263,7 @@ export function VideoHero({
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="font-serif text-5xl font-light text-white md:text-7xl lg:text-8xl"
+            className="font-serif text-5xl font-light text-white md:text-6xl lg:text-7xl"
           >
             {title}
           </motion.h1>
@@ -273,7 +275,7 @@ export function VideoHero({
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.3 }}
-              className=" text-lg font-light tracking-wide text-white/80 md:text-xl lg:text-2xl"
+              className=" text-md font-light tracking-wide text-white/80 md:text-lg lg:text-lg"
             >
               {subtitle}
             </motion.p>
@@ -326,7 +328,7 @@ export function VideoHero({
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs uppercase tracking-widest text-white/70">Scroll</span>
+          <span className="text-xs uppercase tracking-widest text-white/70">{t('scroll')}</span>
           <div className="h-8 w-px bg-white/50" />
         </div>
       </motion.div>

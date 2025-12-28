@@ -50,7 +50,7 @@ export function Button({
   const sizeClasses = {
     small: 'text-sm [padding:0.75rem_1.5rem]',
     medium: 'text-base [padding:1rem_2rem]',
-    large: 'text-lg px-4 py-3',
+    large: 'text-md px-4 py-3',
   };
 
   // Estados
