@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
         subtitle="Punta de Mita"
         primaryButton={{
           text: "Ver Desarrollo",
-          href: "/development"
+          href: "/projects"
         }}
         secondaryButton={{
           text: "Solicitar Información",
