@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFFFFF;
+  --foreground: #1A1F2E;
+  
+  /* Colores personalizados para Atlan Reserve - Modo Claro */
+  --atlan-navy: #0C1945;
+  --atlan-slate: #8998B6;
+  --atlan-steel: #465883;
+  --atlan-ink: #1A1F2E;
+  --atlan-deepSlate: #2F3A5F;
+  --atlan-pearl: #F5F6F8;
+  --atlan-ash: #E1E4EA;
+  --atlan-white: #FFFFFF;
+  --atlan-champagne: #BFA27A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
+  --font-inter: var(--font-inter);
+  
+  /* Colores personalizados */
+  --color-navy: var(--atlan-navy);
+  --color-slate: var(--atlan-slate);
+  --color-steel: var(--atlan-steel);
+  --color-ink: var(--atlan-ink);
+  --color-deepSlate: var(--atlan-deepSlate);
+  --color-pearl: var(--atlan-pearl);
+  --color-ash: var(--atlan-ash);
+  --color-white: var(--atlan-white);
+  --color-champagne: var(--atlan-champagne);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0C1945;
+    --foreground: #F5F6F8;
+    
+    /* Colores personalizados para Atlan Reserve - Modo Oscuro */
+    --atlan-navy: #0C1945;
+    --atlan-slate: #8998B6;
+    --atlan-steel: #465883;
+    --atlan-ink: #1A1F2E;
+    --atlan-deepSlate: #2F3A5F;
+    --atlan-pearl: #F5F6F8;
+    --atlan-ash: #E1E4EA;
+    --atlan-white: #FFFFFF;
+    --atlan-champagne: #BFA27A;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

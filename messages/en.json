@@ -1,0 +1,42 @@
+{
+  "common": {
+    "welcome": "Welcome to Atlan Reserve",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "reservations": "Reservations",
+    "experiences": "Experiences",
+    "properties": "Properties"
+  },
+  "home": {
+    "title": "Discover Luxury in the Mexican Caribbean",
+    "subtitle": "Exclusive villas and unforgettable experiences",
+    "cta": "Explore Now"
+  },
+  "currency": {
+    "usd": "USD",
+    "mxn": "MXN",
+    "eur": "EUR"
+  },
+  "date": {
+    "format": "MM/DD/YYYY"
+  },
+  "metadata": {
+    "title": "Atlan Reserve - Luxury Villas in the Mexican Caribbean",
+    "description": "Discover exclusive luxury villas and unique experiences in the Mexican Caribbean. Book your perfect getaway at Atlan Reserve.",
+    "keywords": "luxury villas, mexican caribbean, exclusive properties, luxury reservations, premium experiences, tulum, playa del carmen, riviera maya"
+  }
+}

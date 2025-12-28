@@ -1,0 +1,42 @@
+{
+  "common": {
+    "welcome": "Bienvenido a Atlan Reserve",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "reservations": "Reservaciones",
+    "experiences": "Experiencias",
+    "properties": "Propiedades"
+  },
+  "home": {
+    "title": "Descubre el Lujo en el Caribe Mexicano",
+    "subtitle": "Villas exclusivas y experiencias inolvidables",
+    "cta": "Explorar Ahora"
+  },
+  "currency": {
+    "usd": "USD",
+    "mxn": "MXN",
+    "eur": "EUR"
+  },
+  "date": {
+    "format": "DD/MM/YYYY"
+  },
+  "metadata": {
+    "title": "Atlan Reserve - Villas de Lujo en el Caribe Mexicano",
+    "description": "Descubre villas de lujo exclusivas y experiencias únicas en el Caribe Mexicano. Reserva tu escapada perfecta en Atlan Reserve.",
+    "keywords": "villas de lujo, caribe mexicano, propiedades exclusivas, reservaciones de lujo, experiencias premium, tulum, playa del carmen, riviera maya"
+  }
+}
