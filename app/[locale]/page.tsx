@@ -1,6 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
 import { VideoHero } from '@/app/components/hero/VideoHero';
 import { ContactSection } from '@/app/components/contact';
+import { ExperiencesCarousel } from '@/app/components/experiences';
+import { experiences } from '@/data/experiences';
 import Image from 'next/image';
 
 type Props = {
@@ -39,6 +41,9 @@ export default async function HomePage({ params }: Props) {
         </p>
         <Image alt='' src={"https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Images/panoramic-view-atlan-reserve.png"} width={1000} height={600}/>
       </section>
+
+      {/* Experiences Carousel */}
+      <ExperiencesCarousel experiences={experiences} />
 
       {/* Contact Section */}
       <ContactSection />

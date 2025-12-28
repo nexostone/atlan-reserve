@@ -261,7 +261,7 @@ export function VideoHero({
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="font-serif text-5xl font-light tracking-wide text-white md:text-7xl lg:text-8xl"
+            className="font-serif text-5xl font-light text-white md:text-7xl lg:text-8xl"
           >
             {title}
           </motion.h1>
@@ -273,7 +273,7 @@ export function VideoHero({
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.3 }}
-              className="mt-2 text-lg font-light tracking-wide text-white/90 md:text-xl lg:text-2xl"
+              className=" text-lg font-light tracking-wide text-white/80 md:text-xl lg:text-2xl"
             >
               {subtitle}
             </motion.p>
