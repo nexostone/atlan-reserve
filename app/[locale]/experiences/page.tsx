@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 import { ExperiencesCarousel } from '@/app/components/experiences';
 import { experiences } from '@/data/experiences';
 
@@ -11,10 +12,22 @@ export default async function ExperiencesPage({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] bg-navy">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/90 to-navy" />
+      <section className="relative h-[60vh] min-h-[500px] bg-navy overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full select-none">
+          <Image
+            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070&auto=format&fit=crop"
+            alt="Exclusive Experiences"
+            fill
+            className="object-cover opacity-60"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/60 to-navy" />
+        </div>
+
         <div className="relative z-10 flex h-full items-center justify-center px-6">
           <div className="text-center">
             <p className="mb-4 text-sm font-light uppercase tracking-widest text-champagne">
@@ -25,7 +38,7 @@ export default async function ExperiencesPage({ params }: Props) {
             </h1>
             <div className="mx-auto mt-6 h-px w-24 bg-champagne" />
             <p className="mt-6 max-w-2xl text-lg font-light text-white/80 md:text-xl">
-              Descubre todas las amenidades, servicios y experiencias 
+              Descubre todas las amenidades, servicios y experiencias
               que hacen de Palo Alto un desarrollo excepcional
             </p>
           </div>
@@ -55,7 +68,7 @@ export default async function ExperiencesPage({ params }: Props) {
             ¿Listo para Experimentar el Paraíso?
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-white/80">
-            Agenda una visita privada y descubre personalmente todo lo que 
+            Agenda una visita privada y descubre personalmente todo lo que
             Palo Alto tiene para ofrecer
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

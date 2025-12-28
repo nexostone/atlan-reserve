@@ -7,11 +7,25 @@
 
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations/variants';
+import Image from 'next/image';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center bg-navy py-32">
-      <div className="container-luxury">
+    <section className="relative min-h-[60vh] flex items-center justify-center bg-navy py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full select-none">
+        <Image
+          src="https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Images/lake-atlan-reserve.png"
+          alt="Atlan Reserve Nature"
+          fill
+          className="object-cover opacity-60"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/60 to-navy" />
+      </div>
+
+      <div className="container-luxury relative z-10">
         <motion.div
           variants={fadeInUp}
           initial="hidden"

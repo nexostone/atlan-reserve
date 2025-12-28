@@ -42,7 +42,7 @@ export const projects: Project[] = [
       landSize: '0.4 - 4.4 Ha',
     },
     price: 'From $8M USD',
-    image: 'https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Images/palo-alto-master-plan.jpg',
+    image: 'https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Images/villa-angulo-palo-alto.png',
     status: 'available',
     featured: true,
   },
