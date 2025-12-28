@@ -19,7 +19,11 @@
     "contact": "Contact",
     "reservations": "Reservations",
     "experiences": "Experiences",
-    "properties": "Properties"
+    "properties": "Properties",
+    "projects": "Developments",
+    "location": "Location",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "home": {
     "hero": {

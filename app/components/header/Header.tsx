@@ -8,6 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -15,6 +16,7 @@ const FULL_LOGO_URL = 'https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-
 const SMALL_LOGO_URL = 'https://nexostone-media.s3.us-east-2.amazonaws.com/atlan-reserve/Logos/small-logo-atlan-reserve.png';
 
 export function Header() {
+  const t = useTranslations('navigation');
   const [isScrolled, setIsScrolled] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -132,10 +134,10 @@ export function Header() {
 
         {/* Navigation */}
         <nav className="hidden text-xs md:flex items-center gap-8">
-          <NavLink href="/experiences">Experiencias</NavLink>
-          <NavLink href="/projects">Desarrollos</NavLink>
-          <NavLink href="/about">Acerca de</NavLink>
-          <NavLink href="/contact">Contacto</NavLink>
+          <NavLink href="/experiences">{t('experiences')}</NavLink>
+          <NavLink href="/projects">{t('projects')}</NavLink>
+          <NavLink href="/about">{t('about')}</NavLink>
+          <NavLink href="/contact">{t('contact')}</NavLink>
         </nav>
 
         {/* CTA Button */}
@@ -147,7 +149,7 @@ export function Header() {
                 : 'border-white text-white hover:bg-white hover:text-black'
               }`}
           >
-            Ubicación
+            {t('location')}
           </Link>
 
           {/* Mobile Menu Button - Solo visible cuando el menú está cerrado */}
@@ -157,7 +159,7 @@ export function Header() {
               className={`md:hidden flex flex-col gap-1.5 p-2 relative z-50 ${
                 isScrolled ? 'text-black' : 'text-white'
               }`}
-              aria-label="Abrir menú"
+              aria-label={t('openMenu')}
             >
               <motion.span
                 className="block h-px w-6 bg-current origin-center"
@@ -185,7 +187,7 @@ export function Header() {
               exit={{ opacity: 0 }}
               onClick={toggleMobileMenu}
               className="md:hidden fixed top-6 right-6 z-[80] flex flex-col gap-1.5 p-2 text-white"
-              aria-label="Cerrar menú"
+              aria-label={t('closeMenu')}
             >
               <motion.span
                 initial={{ rotate: 0, y: 0 }}
@@ -237,28 +239,28 @@ export function Header() {
                     onClick={toggleMobileMenu}
                     delay={0.1}
                   >
-                    Experiencias
+                    {t('experiences')}
                   </MobileNavLink>
                   <MobileNavLink
                     href="/projects"
                     onClick={toggleMobileMenu}
                     delay={0.15}
                   >
-                    Desarrollos
+                    {t('projects')}
                   </MobileNavLink>
                   <MobileNavLink
                     href="/about"
                     onClick={toggleMobileMenu}
                     delay={0.2}
                   >
-                    Acerca de
+                    {t('about')}
                   </MobileNavLink>
                   <MobileNavLink
                     href="/contact"
                     onClick={toggleMobileMenu}
                     delay={0.25}
                   >
-                    Contacto
+                    {t('contact')}
                   </MobileNavLink>
                   </div>
                   {/* Social Links */}
@@ -297,7 +299,7 @@ export function Header() {
                     onClick={toggleMobileMenu}
                     className="block w-full px-6 py-3 text-center text-sm font-light tracking-wide border border-white text-white hover:bg-white hover:text-navy transition-all"
                   >
-                    Ubicación
+                    {t('location')}
                   </Link>
 
                   

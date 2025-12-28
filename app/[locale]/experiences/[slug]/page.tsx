@@ -40,7 +40,7 @@ export default async function ExperiencePage({ params }: Props) {
     .slice(0, 3);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen ">
       {/* Hero Section with Image */}
       <section className="relative h-[70vh] min-h-[600px]">
         <div className="absolute inset-0">

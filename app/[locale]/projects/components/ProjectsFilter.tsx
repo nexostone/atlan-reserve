@@ -43,7 +43,7 @@ export function ProjectsFilter({ activeFilter, onFilterChange }: ProjectsFilterP
             <button
               key={filter.value}
               onClick={() => onFilterChange(filter.value)}
-              className={`px-6 py-2 text-sm font-light tracking-wide transition-all border ${
+              className={`px-6 py-2 text-sm font-light tracking-wide transition-all border cursor-pointer ${
                 activeFilter === filter.value
                   ? 'bg-navy text-white border-navy'
                   : 'bg-transparent text-navy border-ash hover:border-navy'
